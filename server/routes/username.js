@@ -3,8 +3,10 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
+const { Linkedin } = require("lucide-react");
 
 const platforms = {
+  Telegram: (username) => `https://t.me/${username}`,
   github: (username) => `https://github.com/${username}`,
   twitter: (username) => `https://twitter.com/${username}`,
   instagram: (username) => `https://instagram.com/${username}`,

@@ -32,7 +32,8 @@
 ---
 
 ## 📷 Preview
-<img width="1859" height="885" alt="Screenshot 2025-07-10 223447" src="https://github.com/user-attachments/assets/81a67e61-15bb-4e4f-96fb-8a363ed88530" />
+<img width="1867" height="881" alt="image" src="https://github.com/user-attachments/assets/f2b31d8a-cbaa-4fdb-a461-d315c9bdd21b" />
+
 
 
 

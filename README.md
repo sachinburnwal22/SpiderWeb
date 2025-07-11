@@ -32,8 +32,10 @@
 ---
 
 ## 📷 Preview
+<img width="1867" height="881" alt="image" src="https://github.com/user-attachments/assets/f2b31d8a-cbaa-4fdb-a461-d315c9bdd21b" />
 
-Will come soon
+
+
 
 > Hacker-grade UI with dark mode and neon visuals 🟢🖤
 

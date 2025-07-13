@@ -2,7 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const router = express.Router();
 
-const API_KEY = "YOUR_API_KEY_HERE"; // Replace with your actual IPQualityScore API key
+const API_KEY = process.env.IPQS_API_KEY; // Replace with your actual IPQualityScore API key
 
 router.post("/ip-risk", async (req, res) => {
   const { ip } = req.body;

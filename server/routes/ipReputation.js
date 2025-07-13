@@ -2,18 +2,24 @@ const express = require("express");
 const axios = require("axios");
 const router = express.Router();
 
+// Load env only once in entry file, if not already done
+require("dotenv").config({ path: "../.env" });
+
 router.post("/ip-reputation", async (req, res) => {
   const { ip } = req.body;
   const apiKey = process.env.IPQS_API_KEY;
 
-  if (!ip) return res.status(400).json({ error: "IP address required" });
+  if (!ip || typeof ip !== "string") {
+    return res.status(400).json({ error: "A valid IP address is required." });
+  }
 
   try {
     const url = `https://ipqualityscore.com/api/json/ip/${apiKey}/${ip}?strictness=1&allow_public_access_points=true`;
+
     const { data } = await axios.get(url);
 
-    if (data.success === false) {
-      return res.status(500).json({ error: data.message || "IPQS API error" });
+    if (!data || data.success === false) {
+      return res.status(502).json({ error: data?.message || "IPQS API error" });
     }
 
     res.json({
@@ -32,9 +38,10 @@ router.post("/ip-reputation", async (req, res) => {
       connection_type: data.connection_type,
     });
   } catch (err) {
+    console.error("IP Reputation Error:", err.message);
     res
       .status(500)
-      .json({ error: "Server error while checking IP reputation" });
+      .json({ error: "Server error while checking IP reputation." });
   }
 });
 

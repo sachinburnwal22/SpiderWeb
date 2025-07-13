@@ -2,9 +2,8 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
-
-const IPQS_API_KEY = "FvmoSGAYLAeOcg2JCdy1O6Pm91kB3VMm"; // Replace with your real IPQS API key
-
+require("dotenv").config({ path: "../.env" });
+const IPQS_API_KEY = process.env.IPQS_API_KEY; // Replace with your real IPQS API key
 router.post("/ip-quality", async (req, res) => {
   const { ip } = req.body;
   if (!ip) return res.status(400).json({ error: "IP is required" });

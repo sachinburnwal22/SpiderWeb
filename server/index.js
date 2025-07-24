@@ -4,7 +4,7 @@ require("dotenv").config({ path: "../.env" }); // <-- this line is CRITICAL
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-
+const domainReconRoutes = require("./routes/domainRecon");
 const ipReputation = require("./routes/ipReputation");
 const authRoutes = require("./routes/auth");
 const ipRiskCheck = require("./routes/ipRiskCheck");
@@ -33,7 +33,7 @@ app.use("/api", ipLookupRoutes);
 app.use("/api", ipReputation);
 app.use("/api", ipQuality);
 app.use("/api", ipRiskCheck);
-
+app.use("/api/domain-recon", domainReconRoutes);
 // Root route
 app.get("/", (req, res) => {
   res.send("🕷️ SpiderWeb backend is running 🚀");
